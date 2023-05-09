@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def uppercase(str):
     if str == '':
-        print('{}'.formt(str))
+        print('')
         return
     result = ''
     for i in str:
