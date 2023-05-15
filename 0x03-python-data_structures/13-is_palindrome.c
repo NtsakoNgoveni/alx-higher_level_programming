@@ -11,6 +11,7 @@ int is_palindrome(listint_t **head)
 	listint_t *ahead = NULL, *head2 = NULL;
 	listint_t *slow = NULL;
 	int len = 0, len2, i = 0;
+
 	if (*head == NULL)
 		return (1);
 
@@ -20,6 +21,7 @@ int is_palindrome(listint_t **head)
 		curr = curr->next;
 	}
 	len2 =  len / 2;
+	curr = *head;
 
 	if (len % 2 != 0)
 		len2 += 1;
