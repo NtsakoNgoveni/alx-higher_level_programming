@@ -8,9 +8,11 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *curr = *head;
-	listint_t *ahead, *head2;
+	listint_t *ahead = NULL, *head2 = NULL;
 	listint_t *slow = NULL;
 	int len = 0, len2, i = 0;
+	if (*head == NULL)
+		return (1);
 
 	while (curr)
 	{
@@ -21,7 +23,9 @@ int is_palindrome(listint_t **head)
 
 	if (len % 2 != 0)
 		len2 += 1;
-
+	for (i = 0; i < len2; i++)
+		curr = curr->next;
+	i = 0;
 	while (i < len2)
 	{
 		ahead = curr->next;
