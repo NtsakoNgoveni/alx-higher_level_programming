@@ -5,14 +5,11 @@
  *
  * Return: 1 if the linked list is a palindrome, 0 otherwise
  */
-int is_palindrome(listint_t **head)
-{
-	listint_t *curr = *head;
-	listint_t *next = NULL;
-	listint_t *prev = NULL, *rev = NULL;
 
-	if (!*head || !((*head)->next))
-		return (1);
+listint_t *reverse(listint_t **head)
+{
+	listint_t *curr = *head, *next = NULL, *prev = NULL;
+
 	while (curr)
 	{
 		next = curr->next;
@@ -20,14 +17,37 @@ int is_palindrome(listint_t **head)
 		prev = curr;
 		curr = next;
 	}
-	rev = prev;
-	curr = *head;
-	while (rev)
+
+	*head = prev;
+	return (prev);
+}
+
+int is_palindrome(listint_t **head)
+{
+	listint_t *curr = *head, *head2 = *head;
+	int len = 0, i;
+
+	if (*head == NULL)
+		return (1);
+	while (curr)
 	{
-		if (rev->n != curr->n)
-			return (0);
-		rev = rev->next;
+		len++;
 		curr = curr->next;
+	}
+	curr = *head;
+	len = len / 2;
+	if (len % 2 != 0)
+		len ++;
+
+	for (i = 0; i < len; i++)
+		head2 = head2->next;
+	head2 = reverse(&head2);
+
+	for (i = 0; i < len; i++)
+	{
+		if (curr->n != head2->n)
+			return (0);
 	}
 	return (1);
 }
+
