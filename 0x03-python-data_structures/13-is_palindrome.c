@@ -46,7 +46,7 @@ int is_palindrome(listint_t **head)
 	if (len % 2 != 0)
 		len++;
 
-	for (i = 0; i < len; i++)
+	for (i = 1; i < len; i++)
 		head2 = head2->next;
 	head2 = reverse(&head2);
 	rev = head2;
