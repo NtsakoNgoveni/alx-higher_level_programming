@@ -35,9 +35,11 @@ int is_palindrome(listint_t **head)
 		curr = curr->next;
 	}
 	curr = *head;
+	if (len % 2 == 0 && curr->n == curr->next->n)
+		return (0);
 	len = len / 2;
 	if (len % 2 != 0)
-		len ++;
+		len++;
 
 	for (i = 0; i < len; i++)
 		head2 = head2->next;
