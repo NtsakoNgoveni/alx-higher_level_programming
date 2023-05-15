@@ -29,7 +29,7 @@ listint_t *reverse(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *curr = *head, *head2 = *head;
+	listint_t *curr = *head, *head2 = *head, *rev = NULL;
 	int len = 0, i;
 
 	if (*head == NULL || (*head)->next == NULL)
@@ -49,11 +49,15 @@ int is_palindrome(listint_t **head)
 	for (i = 0; i < len; i++)
 		head2 = head2->next;
 	head2 = reverse(&head2);
-
+	rev = head2;
 	for (i = 0; i < len; i++)
 	{
 		if (curr->n != head2->n)
+		{
+			reverse(&rev)
 			return (0);
+		}
 	}
+	reverse(&rev);
 	return (1);
 }
