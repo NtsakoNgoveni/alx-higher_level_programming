@@ -8,42 +8,26 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *curr = *head;
-	listint_t *ahead = NULL, *head2 = NULL;
-	listint_t *slow = NULL;
-	int len = 0, len2, i = 0;
+	listint_t *next = NULL;
+	listint_t *prev = NULL, *rev;
 
-	if (*head == NULL)
+	if (!*head || !((*head)->next))
 		return (1);
-
 	while (curr)
 	{
-		len++;
-		curr = curr->next;
+		next = curr->next;
+		curr->next = prev;
+		prev = curr;
+		curr = next;
 	}
-	len2 =  len / 2;
+	rev = prev;
 	curr = *head;
-
-	if (len % 2 != 0)
-		len2 += 1;
-	for (i = 0; i < len2; i++)
-		curr = curr->next;
-	i = 0;
-	while (i < len2)
+	while (rev)
 	{
-		ahead = curr->next;
-		curr->next = slow;
-		slow = curr;
-		curr = ahead;
-		i++;
-	}
-	head2 = slow;
-
-	/*Compare the first half to second half*/
-	for (i = 0; i < len2; i++)
-	{
-		if ((*head)->n != head2->n)
+		if (rev->n != curr->n)
 			return (0);
-
+		rev = rev->next;
+		curr = curr->next;
 	}
 	return (1);
 }
