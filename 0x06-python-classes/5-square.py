@@ -38,8 +38,7 @@ class Square:
         """Print the square"""
 
         for i in range(self.__size):
-            if size == 0:
-                print()
-                break
             print('#'*self.__size, end='')
             print()
+            if self.__size == 0:
+                print()
