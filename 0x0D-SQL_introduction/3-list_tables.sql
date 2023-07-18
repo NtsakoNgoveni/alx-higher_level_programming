@@ -1,3 +1,3 @@
 --List all tables of a database
-USE $5
+USE mysql
 SHOW tables;
