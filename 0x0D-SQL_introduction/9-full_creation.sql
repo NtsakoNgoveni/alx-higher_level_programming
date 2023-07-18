@@ -1,4 +1,4 @@
---Create a table named secon_table
+-- Create a table named secon_table
 CREATE TABLE IF NOT EXISTS second_table (
 	id INT,
 	name VARCHAR(256),

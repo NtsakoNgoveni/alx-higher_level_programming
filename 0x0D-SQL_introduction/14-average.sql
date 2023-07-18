@@ -1,3 +1,3 @@
---Compute the average score of all records
+-- Compute the average score of all records
 SELECT AVG(score) as average
 FROM second_table
