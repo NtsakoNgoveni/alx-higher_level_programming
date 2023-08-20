@@ -1,9 +1,11 @@
 #!/usr/bin/python3
+
+
+"""Create a relationship class"""
+
+
 from sqlalchemy import Column, Integer, String, text, ForeignKey
 from relationship_state import Base
-"""
-    Module that performs creates a States class based off of Base.
-"""
 
 
 class City(Base):
