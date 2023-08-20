@@ -16,7 +16,7 @@ if __name__ == '__main__':
                          port=3306)
 
     cursor = db.cursor()
-    cursor.excute("SELECT * FROM states ORDER BY is ASC")
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
     results = cursor.fetchall()
 
     for record in results:
